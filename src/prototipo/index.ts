@@ -96,9 +96,10 @@ function productPost(req: Request, res: Response) {
 function productPatch(req: Request, res: Response) {
     console.log('Patch');
     const prodChang = req.body;
+    const change = prodChang.delete.id;
     const { id } = req.params;
     let product = dataArray.find((pro) => pro.id === id);
-    product = { ...prodChang };
+    product = { ...change };
     console.log(product);
     res.json(dataArray);
 }
