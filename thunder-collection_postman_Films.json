@@ -1,0 +1,27 @@
+{
+    "info": {
+        "_postman_id": "1d565217-9314-4d41-918e-b07477a837a3",
+        "name": "Films",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "https:localhost/api/category:3000",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "https:localhost:3000/api/category",
+                    "path": [
+                        "api",
+                        "category"
+                    ],
+                    "host": [
+                        "https"
+                    ],
+                    "port": "localhost"
+                }
+            }
+        }
+    ]
+}
