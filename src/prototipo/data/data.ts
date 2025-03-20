@@ -19,7 +19,7 @@ export const DATA = [
         updated_at: new Date(),
     },
     {
-        id: crypto.randomUUID,
+        id: crypto.randomUUID() as string,
         name: 'Producto2',
         price: 2,
         stock: 100,
@@ -28,7 +28,7 @@ export const DATA = [
         updated_at: new Date(),
     },
     {
-        id: crypto.randomUUID,
+        id: crypto.randomUUID() as string,
         name: 'Producto3',
         price: 3,
         stock: 100,

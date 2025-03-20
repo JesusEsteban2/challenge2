@@ -4,11 +4,21 @@ import { resolve } from 'path';
 import cors from 'cors';
 import { Router } from 'express';
 import type { NextFunction, Request, Response } from 'express';
-import { HttpError } from './http.error.type';
 import { DATA } from './data/data.js';
 
 //Datos de prueba
 let dataArray = DATA;
+
+class HttpError extends Error {
+    constructor(
+        message: string,
+        public statusCode: number,
+        public status: string,
+    ) {
+        super(message);
+        this.name = 'HttpError';
+    }
+}
 
 // Error 404 - Not Found
 function notFoundController(req: Request, _res: Response, next: NextFunction) {
@@ -71,12 +81,14 @@ function productGetById(req: Request, res: Response) {
     console.log('getById');
     const { id } = req.params;
     const product = dataArray.find((pro) => pro.id === id);
+    console.log(product);
     res.json(product);
 }
 
 function productPost(req: Request, res: Response) {
     console.log('Post');
     const pro = req.body;
+    pro.id = crypto.randomUUID();
     dataArray.push(pro);
     res.json(dataArray);
 }
