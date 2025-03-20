@@ -96,7 +96,8 @@ function productPost(req: Request, res: Response) {
 function productPatch(req: Request, res: Response) {
     console.log('Patch');
     const prodChang = req.body;
-    let product = dataArray.find((pro) => pro.id === prodChang.id);
+    const { id } = req.params;
+    let product = dataArray.find((pro) => pro.id === id);
     product = { ...prodChang };
     console.log(product);
     res.json(dataArray);
